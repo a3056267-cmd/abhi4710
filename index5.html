@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<title>Boda Abhilash — AI Video Creator</title>
+<meta name="description" content="Boda Abhilash — AI video creator, storyboard artist and video editor. Cinematic AI ads and story-driven video for MPL, ZUDO, Esbeda, Mega We Care, Yodley and Alankar."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  color-scheme:light;
+  --bg:#FCFCFA;--bg-2:#F5F4F0;--panel:#FFFFFF;
+  --line:rgba(17,17,17,.08);--line-2:rgba(17,17,17,.16);
+  --gold:#8A6B3A;--gold-2:#A58146;--gold-soft:rgba(165,129,70,.16);
+  --text:#151515;--text-2:#55554F;--text-3:#8B8A84;
+  --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --sans:'Figtree','Helvetica Neue',Arial,sans-serif;
+  --max:1240px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:1px solid var(--gold);outline-offset:4px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:50;background:rgba(10,10,11,.78);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.nav-in{max-width:var(--max);margin:0 auto;padding:0 28px;height:68px;display:flex;align-items:center;gap:32px}
+.mark{font-family:var(--serif);font-size:23px;font-weight:500}
+.mark i{font-style:italic;color:var(--gold)}
+.nav-links{margin-left:auto;display:flex;gap:28px;font-size:13.5px;letter-spacing:.04em;color:var(--text-2)}
+.nav-links a:hover{color:var(--gold-2)}
+.nav-cta{padding:10px 18px;border:1px solid var(--gold);color:var(--gold);font-size:13px;letter-spacing:.06em;transition:background .25s,color .25s}
+.nav-cta:hover{background:var(--gold);color:#121008}
+
+/* hero: short, work comes fast */
+.hero{padding:clamp(48px,7vw,88px) 0 36px;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:end}
+.hero h1{font-family:var(--serif);font-weight:300;font-size:clamp(44px,7.4vw,104px);line-height:.96;letter-spacing:-.015em}
+.hero h1 em{font-style:italic;color:var(--gold-2)}
+.hero p{color:var(--text-2);font-size:clamp(16px,1.5vw,18px);max-width:44ch}
+.hero p strong{color:var(--text);font-weight:500}
+.hero .now{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.hero .now i{width:7px;height:7px;border-radius:50%;background:var(--gold);animation:pulse 2.2s ease-in-out infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 6px rgba(203,176,122,.18)}}
+
+/* shared media tile */
+.tile{position:relative;display:block;width:100%;overflow:hidden;background:linear-gradient(135deg,#17130B,#0C0C0E);border:1px solid var(--line);text-align:left}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.2,1),opacity .4s}
+.tile:hover img{transform:scale(1.04)}
+.tile .ph{position:absolute;inset:0;display:grid;place-items:start center;padding-top:20%!important;font-family:var(--serif);font-size:clamp(22px,3vw,40px);color:var(--gold-2);letter-spacing:.04em;text-align:center;padding:20px}
+.tile .shade{position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.78));pointer-events:none}
+.play{position:absolute;left:50%;top:50%;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;border:1px solid rgba(255,255,255,.7);background:rgba(10,10,11,.45);backdrop-filter:blur(6px);display:grid;place-items:center;transition:transform .3s,background .3s,border-color .3s}
+.play svg{width:22px;height:22px;margin-left:4px;fill:#fff}
+.tile:hover .play{transform:scale(1.08);background:var(--gold);border-color:var(--gold)}
+.tile:hover .play svg{fill:#121008}
+
+/* featured */
+.feature{aspect-ratio:16/8;min-height:300px}
+.feature .cap{position:absolute;left:0;right:0;bottom:0;padding:clamp(18px,3vw,36px);display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
+.feature .cap small{display:block;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.feature .cap b{font-family:var(--serif);font-weight:400;font-size:clamp(28px,4.4vw,56px);line-height:1}
+.feature .cap span{color:var(--text-2);font-size:14.5px;max-width:42ch}
+
+/* section heads */
+section{padding:96px 0 0}
+.head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:32px;flex-wrap:wrap}
+.code{font-size:12px;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:12px}
+.h2{font-family:var(--serif);font-weight:300;font-size:clamp(34px,4.8vw,62px);line-height:1;letter-spacing:-.01em}
+.h2 em{font-style:italic;color:var(--gold-2)}
+.head p{color:var(--text-3);font-size:14.5px;max-width:40ch}
+
+/* work grid */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card .tile{aspect-ratio:4/5}
+.card .play{width:60px;height:60px;margin:-30px 0 0 -30px}
+.card .meta{padding:16px 2px 0}
+.card .client{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.card h3{font-family:var(--serif);font-weight:400;font-size:25px;line-height:1.15;margin:6px 0 6px}
+.card p{font-size:14px;color:var(--text-2);line-height:1.6}
+.card .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.chip{font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:4px 9px;border:1px solid var(--line);color:var(--text-3)}
+
+/* storyboards */
+.boards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.boards .tile{aspect-ratio:4/3}
+.boards .tag{position:absolute;left:12px;bottom:10px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#fff}
+
+/* reviews */
+.reviews{display:flex;gap:14px;overflow-x:auto;padding-bottom:14px;scroll-snap-type:x mandatory}
+.reviews .tile{flex:0 0 220px;aspect-ratio:9/16;scroll-snap-align:start}
+.reviews::-webkit-scrollbar{height:6px}.reviews::-webkit-scrollbar-thumb{background:var(--line-2)}
+
+/* about */
+.about{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:start}
+.about p{font-size:17px;line-height:1.75;color:var(--text-2);margin-bottom:18px;max-width:58ch}
+.about p strong{color:var(--text);font-weight:500}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.tag2{font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:8px 13px;border:1px solid var(--line-2);color:var(--text-2)}
+.tracks{border-top:1px solid var(--line)}
+.track{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:20px 0;border-bottom:1px solid var(--line)}
+.track b{font-family:var(--serif);font-size:32px;font-weight:400;color:var(--gold-2);line-height:1}
+.track span{font-size:14px;color:var(--text-2);text-align:right}
+
+/* cert */
+.cert{display:grid;grid-template-columns:260px 1fr;gap:36px;align-items:center;padding:28px;border:1px solid var(--line-2);background:linear-gradient(135deg,rgba(203,176,122,.08),transparent 55%)}
+.cert .tile{aspect-ratio:4/3}
+.cert h3{font-family:var(--serif);font-size:30px;font-weight:400}
+.cert p{font-size:15px;color:var(--text-2);margin-top:8px;max-width:56ch}
+.link{margin-top:16px;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-2);display:inline-flex;align-items:center;gap:8px}
+.link:hover{color:var(--gold)}
+
+/* contact */
+.contact{padding:clamp(52px,8vw,92px) clamp(22px,5vw,64px);border:1px solid var(--line-2);text-align:center;position:relative;overflow:hidden;background:var(--bg-2)}
+.contact::before{content:"";position:absolute;inset:0;background:radial-gradient(800px 340px at 50% 115%,rgba(203,176,122,.22),transparent 70%);pointer-events:none}
+.contact>*{position:relative}
+.contact h2{font-family:var(--serif);font-weight:300;font-size:clamp(36px,6.4vw,80px);line-height:1}
+.contact h2 em{font-style:italic;color:var(--gold-2)}
+.contact p{font-size:17px;color:var(--text-2);max-width:48ch;margin:20px auto 0}
+.cl{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:30px}
+.ci{display:inline-flex;align-items:center;padding:13px 18px;border:1px solid var(--line-2);font-size:14px;transition:border-color .25s,color .25s}
+a.ci:hover{border-color:var(--gold);color:var(--gold-2)}
+.ci.gold{background:var(--gold);border-color:var(--gold);color:#121008;font-weight:500}
+a.ci.gold:hover{background:var(--gold-2);color:#121008}
+
+footer{margin-top:88px;padding:28px;border-top:1px solid var(--line);text-align:center;font-size:13px;color:var(--text-3)}
+footer span{color:var(--text)}
+
+/* lightbox */
+dialog{border:0;padding:0;background:transparent;max-width:none;max-height:none;width:100vw;height:100vh;margin:0}
+dialog::backdrop{background:rgba(5,5,6,.92)}
+.lb{width:100%;height:100%;display:grid;grid-template-rows:auto 1fr;padding:16px}
+.lb-top{display:flex;align-items:center;justify-content:space-between;gap:16px;color:var(--text);padding:4px 4px 12px}
+.lb-top b{font-family:var(--serif);font-weight:400;font-size:22px}
+.lb-top a{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-2);margin-left:auto}
+.lb-x{width:42px;height:42px;border:1px solid var(--line-2);font-size:20px;line-height:1}
+.lb-x:hover{border-color:var(--gold);color:var(--gold-2)}
+.lb-body{min-height:0;display:grid;place-items:center}
+.lb-body iframe{width:min(100%,1200px);height:100%;border:0;background:#000}
+.lb-body img{max-width:100%;max-height:100%;object-fit:contain}
+
+@media (max-width:980px){
+  .hero{grid-template-columns:1fr;gap:20px;align-items:start}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .about{grid-template-columns:1fr;gap:40px}
+  .cert{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .nav-links{display:none}.nav-cta{margin-left:auto}
+  .feature{aspect-ratio:4/5}
+  .grid{grid-template-columns:1fr}
+  .boards{grid-template-columns:repeat(2,1fr)}
+  section{padding-top:72px}
+  .reviews .tile{flex-basis:170px}
+}
+
+/* ---- light theme refinements ---- */
+.nav{background:rgba(252,252,250,.82)}
+.nav-cta{border-radius:999px}
+.nav-cta:hover{background:var(--text);border-color:var(--text);color:#fff}
+.tile{background:linear-gradient(135deg,#F1EFE9,#E9E6DE);border-radius:16px;border-color:var(--line);box-shadow:0 1px 2px rgba(17,17,17,.04);transition:box-shadow .35s,transform .35s}
+.tile:hover{box-shadow:0 18px 40px -18px rgba(17,17,17,.28);transform:translateY(-2px)}
+.tile .ph{color:#6E6A60}
+.tile .shade{background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.62))}
+.play{border-color:#fff;background:rgba(20,20,20,.38)}
+.tile:hover .play{background:#fff;border-color:#fff}
+.tile:hover .play svg{fill:#151515}
+.feature .cap{color:#fff}
+.feature .cap small{color:#F0DDB0}
+.feature .cap span{color:rgba(255,255,255,.86)}
+.feature .cap b{color:#fff}
+.chip,.tag2{border-radius:999px;background:#fff}
+.cert,.contact{border-radius:22px}
+.cert{background:#fff;border-color:var(--line);box-shadow:0 20px 50px -30px rgba(17,17,17,.25)}
+.contact{background:#fff;border-color:var(--line);box-shadow:0 30px 70px -40px rgba(17,17,17,.3)}
+.contact::before{background:radial-gradient(800px 340px at 50% 118%,rgba(165,129,70,.20),transparent 70%)}
+.ci{border-radius:999px;background:#fff}
+.ci.gold{background:var(--text);border-color:var(--text);color:#fff}
+a.ci.gold:hover{background:var(--gold);border-color:var(--gold);color:#fff}
+.reviews::-webkit-scrollbar-thumb{background:rgba(17,17,17,.18);border-radius:6px}
+.hero .now i{box-shadow:0 0 0 4px var(--gold-soft)}
+/* viewer stays dark so the work pops */
+.lb-top{color:#fff}
+.lb-top a{color:#F0DDB0}
+.lb-x{border-color:rgba(255,255,255,.3);color:#fff;border-radius:999px}
+.lb-x:hover{border-color:#fff;color:#fff}
+.lb-body iframe{border-radius:12px}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-in">
+    <a class="mark" href="#top">Boda <i>Abhilash</i></a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#work">Work</a><a href="#storyboards">Storyboards</a><a href="#reviews">Reviews</a><a href="#about">About</a>
+    </nav>
+    <a class="nav-cta" href="#contact">Hire Me</a>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+
+  <div class="hero">
+    <h1>Boda<br><em>Abhilash</em></h1>
+    <div>
+      <div class="now"><i aria-hidden="true"></i>Currently at MPL · Forx app</div>
+      <p><strong>AI Video Creator, Storyboard Artist and Video Editor.</strong> Cinematic AI ads and story-driven video for brands across India. Press play on any piece below.</p>
+    </div>
+  </div>
+
+  <a class="tile feature" href="https://drive.google.com/file/d/1xHmN6aOUO1HrHagbe6Rb2g8tnWRUY897/view" target="_blank" rel="noopener" data-video="1xHmN6aOUO1HrHagbe6Rb2g8tnWRUY897" data-title="MPL — Ad Trailer">
+    <img alt="MPL ad trailer" data-thumb="1xHmN6aOUO1HrHagbe6Rb2g8tnWRUY897" data-size="w1600"/>
+    <span class="shade"></span>
+    <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span>
+    <span class="cap">
+      <span><small>Featured · MPL</small><b>Ad Trailer</b></span>
+      <span>Made for MPL, where I’m building a story-driven game for the Forx app as AI video creator, storyboard artist and editor.</span>
+    </span>
+  </a>
+
+  <section id="work">
+    <div class="head">
+      <div><div class="code">Selected work</div><h2 class="h2">Brand films &amp; <em>AI ads</em></h2></div>
+      <p>Six pieces, each concepted, storyboarded, generated and edited end to end.</p>
+    </div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section id="storyboards">
+    <div class="head">
+      <div><div class="code">Pre-production</div><h2 class="h2">Story<em>boards</em></h2></div>
+      <p>Frame-by-frame plans that turn a client brief into a clear visual script before anything is generated.</p>
+    </div>
+    <div class="boards" id="boards"></div>
+  </section>
+
+  <section id="reviews">
+    <div class="head">
+      <div><div class="code">Client feedback</div><h2 class="h2">What clients <em>say</em></h2></div>
+      <p>Messages from clients after delivery. Scroll sideways, tap to read.</p>
+    </div>
+    <div class="reviews" id="rev"></div>
+  </section>
+
+  <section id="about">
+    <div class="head"><div><div class="code">Who I am</div><h2 class="h2">AI Video Creator &amp; <em>Agency Founder</em></h2></div></div>
+    <div class="about">
+      <div>
+        <p>I’m <strong>Boda Abhilash</strong>, an AI Video Creator, Video Editor and Storyboard Artist. With <strong>2 years of consistent experience</strong>, I specialise in crafting cinematic AI advertisements, product commercials and social media content that stop the scroll.</p>
+        <p>I currently work with <strong>MPL</strong> on a game story for the Forx app, and run an <strong>independent AI creative agency</strong> with a team of freelancers, delivering end-to-end video production for brands across India, from brief and storyboard to final delivery.</p>
+        <p>I’m also a <strong>B.Tech student at IIT Bhilai</strong>. My work spans health brands, fashion labels, gaming companies, YouTube channels and local businesses.</p>
+        <div class="tags">
+          <span class="tag2">AI Video Generation</span><span class="tag2">Cinematic Ads</span><span class="tag2">Storyboard Design</span><span class="tag2">Prompt Engineering</span><span class="tag2">Retention Editing</span><span class="tag2">Sound Design</span><span class="tag2">Higgsfield</span>
+        </div>
+      </div>
+      <div class="tracks">
+        <div class="track"><b>MPL</b><span>Current — Game story, Forx app</span></div>
+        <div class="track"><b>20+</b><span>Local Business Clients Served</span></div>
+        <div class="track"><b>8+</b><span>National Brand Campaigns</span></div>
+        <div class="track"><b>2 Yrs</b><span>Consistent AI Video Creation</span></div>
+        <div class="track"><b>IIT</b><span>Bhilai — B.Tech (Pursuing)</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="cert">
+      <a class="tile" href="https://drive.google.com/file/d/1JtRSJzd45I6y0lV40HNigWyjxUp0D65A/view" target="_blank" rel="noopener" data-image="1JtRSJzd45I6y0lV40HNigWyjxUp0D65A" data-title="AI Creator Certification">
+        <img alt="AI Creator Certification" data-thumb="1JtRSJzd45I6y0lV40HNigWyjxUp0D65A" data-size="w800"/>
+      </a>
+      <div>
+        <div class="code">Credentials</div>
+        <h3>AI Creator Certification</h3>
+        <p>Certified in AI video creation, prompt engineering and advanced digital content production.</p>
+        <a class="link" href="https://drive.google.com/file/d/1JtRSJzd45I6y0lV40HNigWyjxUp0D65A/view" target="_blank" rel="noopener">View certificate ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact">
+      <h2>Ready to create<br><em>something cinematic?</em></h2>
+      <p>Brand campaign, social reel or a full AI video production. Tell me what you’re making.</p>
+      <div class="cl">
+        <a class="ci gold" href="mailto:babhilash@iitbhilai.ac.in">babhilash@iitbhilai.ac.in</a>
+        <a class="ci" href="tel:+916304242179">+91 6304242179</a>
+        <a class="ci" href="https://drive.google.com/drive/folders/104L1-3d5g_VvTs2nv1U2__C422c32KQ5" target="_blank" rel="noopener">All files on Drive ↗</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><p>© 2026 <span>Boda Abhilash</span> · AI Video Creator · Storyboard Artist · Video Editor</p></footer>
+
+<dialog id="lb" aria-label="Media viewer">
+  <div class="lb">
+    <div class="lb-top"><b id="lbTitle"></b><a id="lbOpen" target="_blank" rel="noopener">Open in Drive ↗</a><button class="lb-x" id="lbX" aria-label="Close">×</button></div>
+    <div class="lb-body" id="lbBody"></div>
+  </div>
+</dialog>
+
+<script>
+(function(){
+  var PLAY='<span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span>';
+
+  var WORK=[
+    {id:'1_NX3iLTh7o2ie1D6BeByILAW165FU06U',client:'ZUDO',title:'Cinematic AI Ad Campaign',desc:'End-to-end cinematic AI advertisement, from concept and storyboard to final delivery.',chips:['AI Video','Storyboard','Brand Ad']},
+    {id:'15p2fI1fcT6KxfBhyq7TwoPuvNaGcFBEa',client:'Esbeda',title:'Fashion & Lifestyle AI Ad',desc:'Product showcase film for Amazon, matched to Esbeda’s premium brand identity.',chips:['Fashion','E-commerce','AI Video']},
+    {id:'1PPSuVUmvhjouK0DUWh05489omBqKqFAY',client:'Mega We Care',title:'Health & Wellness Brand Film',desc:'Promotional brand video for YouTube with cinematic product storytelling.',chips:['Health Brand','YouTube','Cinematic']},
+    {id:'1B-LB5H2Ve7pIpWQCQw9K9NVy5xIvQ2An',client:'Yodley',title:'Munchies Brand Ad',desc:'Snack brand advertisement edited to Yodley’s tone, built for social performance.',chips:['Snacks','Social Reel','AI Edit']},
+    {id:'1mjnQmLrdd-96BUtrUhZdmPJHObedQr73',client:'Alankar',title:'Spectacles Commercial',desc:'Visually rich product commercial for Alankar’s eyewear collection.',chips:['Product Ad','Eyewear','Storyboard']},
+    {id:'1odtgb5cFmHdOvZepDaTxwe7anv7RCNs6',client:'Cinematic scene',title:'Krishna — AI Scene',desc:'Character-driven cinematic sequence focused on mood, lighting and consistency.',chips:['Narrative','Character','Cinematic']}
+  ];
+  var BOARDS=[
+    ['1qO3tqf5ICmwACM40NKhnc4ItoPxlgXAf','Alankar · 01'],['1eEg57ZhslndbvFNVwFL-ktcMn0FZAAxw','Alankar · 02'],['1FF1YK4zvV0Mkr5xziibSCOwrkfACKvgu','Alankar · 03'],
+    ['1noWTgraeYBHVkedQGbNA-rCcBERo9kgs','Alankar · 04'],['1uawe7fCL3gInieaBYTP8q5tQQLWOd_Ub','Esbeda · 01'],['1FYmedkJ9zFmMR_6wEsl-G_h3XU-gxfFj','Esbeda · 02'],
+    ['1bw9YGt1fCxzfpYIUTQUvS1RflLf1HZ5V','Yodley · 01'],['12j7OauHqSTG0_kgOgUo-xhFNqzR1a37e','Yodley · 02'],['14nVanRP4-GudhfISUFuaRLDhgHmFshq_','Yodley · 03']
+  ];
+  var REVIEWS=['1WQeieMTZVrBcpei9HqMyzjtpSUaLB7Ss','1HLR0tLG8YKXXIqCYv-Mf3jRThHqCA8ha','1UNPey7iFVU5gNEhkAYm1emLnaqr6TqiN','1aTAiQzBa_W4mgu2z4HMBQJTnoPeibuUQ','1-OIsaDtuWmJIBMD4sqAO1Ai5zQGuAjlZ','1k14GEg5xMeI6V8laJHw6w0ahCUPwehzx','1McxLlot0tu91AwPRS9SC-XTwYPFXkLrg','1CDGMGzmBH74zNkVAgPMh-y5o8w1GCUlF','1gU1vrWN8GuMN8WzI0W-eegn1nLWnlZL1','1PtYP0Z1Pz5idxsMPDHCsXtLk9zPKbozG','1njeVZCZWNlLzNvfOwXf-ydEeHItP8CQu','1GkUc34f6lp6UiD0feU9nbAE4YBdX83nU','1UTHU40IjdVnCkGCSVeasKhmh9i5Uptek','1dngzektymTXbii_pFDTXjF-GFUZr3geT'];
+
+  function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+  function view(id){return 'https://drive.google.com/file/d/'+id+'/view';}
+  var driveOK=false;
+  function thumb(id,size){return 'https://drive.google.com/thumbnail?id='+id+'&sz='+(size||'w800');}
+
+  document.getElementById('grid').innerHTML=WORK.map(function(w){
+    return '<article class="card"><a class="tile" href="'+view(w.id)+'" target="_blank" rel="noopener" data-video="'+w.id+'" data-title="'+esc(w.client+' — '+w.title)+'">'
+      +'<img alt="'+esc(w.client+' '+w.title)+'" loading="lazy" data-thumb="'+w.id+'" data-size="w900" data-label="'+esc(w.client)+'"/><span class="shade"></span>'+PLAY+'</a>'
+      +'<div class="meta"><div class="client">'+esc(w.client)+'</div><h3>'+esc(w.title)+'</h3><p>'+esc(w.desc)+'</p>'
+      +'<div class="chips">'+w.chips.map(function(c){return '<span class="chip">'+esc(c)+'</span>';}).join('')+'</div></div></article>';
+  }).join('');
+
+  document.getElementById('boards').innerHTML=BOARDS.map(function(b){
+    return '<a class="tile" href="'+view(b[0])+'" target="_blank" rel="noopener" data-image="'+b[0]+'" data-title="Storyboard — '+esc(b[1])+'"><img alt="Storyboard '+esc(b[1])+'" loading="lazy" data-thumb="'+b[0]+'" data-size="w800" data-label="'+esc(b[1])+'"/><span class="shade"></span><span class="tag">'+esc(b[1])+'</span></a>';
+  }).join('');
+
+  document.getElementById('rev').innerHTML=REVIEWS.map(function(id,i){
+    return '<a class="tile" href="'+view(id)+'" target="_blank" rel="noopener" data-image="'+id+'" data-title="Client review '+(i+1)+'"><img alt="Client review '+(i+1)+'" loading="lazy" data-thumb="'+id+'" data-size="w500" data-label="Review '+(i+1)+'"/></a>';
+  }).join('');
+
+  // thumbnails with two fallbacks, then a text placeholder
+  Array.prototype.forEach.call(document.querySelectorAll('img[data-thumb]'),function(img){
+    var id=img.getAttribute('data-thumb'),size=img.getAttribute('data-size')||'w800',step=0;
+    img.onerror=function(){
+      step++;
+      if(step===1){img.src='https://lh3.googleusercontent.com/d/'+id+'='+size;return;}
+      img.onerror=null;img.style.display='none';
+      var ph=document.createElement('span');ph.className='ph';ph.textContent=img.getAttribute('data-label')||img.alt;
+      img.parentNode.insertBefore(ph,img);
+    };
+    img.onload=function(){driveOK=true;};
+    img.src=thumb(id,size);
+  });
+
+  // lightbox
+  var lb=document.getElementById('lb'),body=document.getElementById('lbBody'),title=document.getElementById('lbTitle'),open=document.getElementById('lbOpen'),last=null;
+  function show(t){
+    var v=t.getAttribute('data-video'),im=t.getAttribute('data-image'),id=v||im;
+    title.textContent=t.getAttribute('data-title')||'';
+    open.href='https://drive.google.com/file/d/'+id+'/view';
+    if(v){body.innerHTML='<iframe src="https://drive.google.com/file/d/'+v+'/preview" allow="autoplay; fullscreen" allowfullscreen title="'+esc(title.textContent)+'"></iframe>';}
+    else{body.innerHTML='<img alt="'+esc(title.textContent)+'" src="'+thumb(im,'w2000')+'"/>';}
+    last=t;
+    if(lb.showModal){lb.showModal();}else{window.open(open.href,'_blank');}
+  }
+  function hide(){body.innerHTML='';if(lb.open){lb.close();}if(last){last.focus();}}
+  document.addEventListener('click',function(e){
+    var t=e.target.closest('[data-video],[data-image]');
+    if(t){if(!driveOK){return;}e.preventDefault();show(t);return;}
+    if(e.target===lb||e.target.id==='lbX'||e.target.classList.contains('lb-body')){hide();}
+  });
+  lb.addEventListener('close',function(){body.innerHTML='';});
+})();
+</script>
+</body>
+</html>
